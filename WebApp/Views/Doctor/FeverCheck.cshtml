@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Your Temperature Fever Checkup";
+}
+
+<div class="container">
+    <h2>checking out you bodytemprature</h2>
+    <div class="wrapper">
+
+        <h3>Fever Check</h3>
+        <form asp-action="FeverCheck" asp-controller="Doctor" method="post">
+
+            <input type="number" name="temp" value="" placeholder="Please enter your body temperature" min="32" max="43" step="0.1" />
+            <button type="submit">Submit</button>
+
+            <p>
+                @if (ViewBag.Msg != null)
+                {@ViewBag.Msg}
+            </p>
+        </form>
+    </div>
+</div>
+
+@if (ViewBag.tempMsg != null)
+{
+<p>Temp result: @ViewBag.tempMsg</p>
+
+}
